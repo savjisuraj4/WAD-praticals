@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Login Page</title>
+          <style>
+                    .maindiv {
+                              margin-top: 80px;
+                              margin-left: 15vw;
+                              margin-right: 15vw;
+                              text-align: center;
+                              border: 3px black solid;
+                              border-radius: 15px;
+                    }
+                    h1{
+                              font-size: 6vw;
+                              font-family: 'Courier New', Courier, monospace;
+                    }
+                    input {
+                              font-size: 1vw;
+                              margin-bottom: 2vw;
+                              height: 1.5vw;
+                              width: 22vw;
+                              border: 2px black solid;
+
+                    }
+
+                    label {
+                              margin-right: 15px;
+                              font-size: 2vw;
+                              font-weight: bolder;
+                              font-family: 'Times New Roman', Times, serif;
+                    }
+                    .button{
+                              align-self: center;
+                              align-items: center;
+                              gap: 1vw;
+                    }
+                    button{
+                              margin-top: 25px;
+                              width: fit-content;
+                              align-self: center;
+                              margin-bottom: 25px;
+                              font-size: 2vw;
+                              padding: 0% 4vw;
+                              border-radius: 25px;
+                              font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                              color: white;
+                    }
+                    button:hover{
+                              cursor: pointer;
+                    }
+          </style>
+</head>
+
+<body>
+          <div class="maindiv">
+                    <h1>LOGIN</h1>
+                    <div style="display: flex;flex-direction: column;">
+                              <div>
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="email" placeholder="Email" />
+                              </div>
+
+                              <div>
+                                        <label for="password">Password:</label>
+                                        <input type="password" id="password" placeholder="Password" />
+                              </div>
+                              <div class="button" style="display: flex;; flex-direction: row;">
+                              <button style="background-color: green;" onclick="login()">LOGIN</button>
+                              <a href="register.html"><button style="background-color: red;">REGISTER</button></a>
+                              </div>
+                    </div>
+          </div>
+          <script>
+                    async function login(){
+                              const email=document.getElementById("email").value;
+                              const password=document.getElementById("password").value;
+
+                              const data={
+                                        email:email,
+                                        password:password
+                              };
+                              await fetch("http://localhost:8080/login",{
+                                        method:"POST",
+                                        headers:{
+                                                  "Content-type":"application/json"
+                                        },
+                                        body:JSON.stringify(data)
+                              })
+                              .then((response)=>{
+                                        alert("Login Successful")
+                              })
+                              .catch((error)=>{
+                                        alert(error);
+                              })
+                    }
+          </script>
+</body>
+
+</html>

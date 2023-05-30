@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>jQuery DOM updation</title>
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <style>
+                    div {
+                              margin-top: 150px;
+                              text-align: center;
+                              font-family: 'Courier New', Courier, monospace;
+                              font-size: 2vw;
+                              align-items: center;
+                    }
+
+                    button {
+                              padding: 0.5vw 3vw;
+                              background-color: green;
+                              border-radius: 15px;
+                              color: white;
+                              font-weight: bold;
+                              font-family: 'Courier New', Courier, monospace;
+                    }
+          </style>
+</head>
+
+<body>
+          <div>
+                    <h1 id="text">Initial Message</h1>
+                    <button id="change">Change</button>
+          </div>
+
+          <script>
+                    $(document).ready(function () {
+                              $("#change").click(function () {
+                                        $('#text').text('Updated Message');
+                              });
+                    });
+          </script>
+</body>
+
+</html>
