@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  margin:150px 550px;
+  border: 3px black solid;
+  font-family: 'Courier New', Courier, monospace;
+}
+h1{
+  color: red;
+  font-size: 45px
+}
+h2{
+  color: blue;
+  font-size: 25px
+}
